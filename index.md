@@ -1,32 +1,35 @@
-# Lab Report 1
-**Part 1**
+# Lab Report 2
 
+**Code Change #1**
 
-![Image](images/p1.png)
-I already had vscode installed from CSE 11, so all I had to do was open a file. As shown, I have an example file open from an assignment from CSE 12. 
-Link to download vsCode [link to download vsCode](https://code.visualstudio.com/download)
+![Image](if1.png)
 
-**Part 2**
+[link to error-inducing file](https://github.com/ad656/markdown-parse/blob/4877029f6d246b7a6e3143fe32ebb2ea7f5dc577/test-file.md)
 
-![Image](images/p2.png)
+![Image](if1error.png)
 
-After resetting my password, I was able to remotely connect by entering my login and password. After connecting, the terminal shows some information about my connection. We log in by using ``ssh`` + login address and then inputting the password. 
+Since the while look in MarkdownParse always checks for an open bracket before a link, the loop will infintely 
+loop if the line of code does not contain brackets. To avoid this issue, we add a condition to only run the rest
+of the loop if there is an open bracket found. 
 
-Link to reset password - [link to reset password](https://sdacs.ucsd.edu/~icc/index.php)
+**Code Change #2**
+![Image](if2.png)
 
-**Part 3**
-![Image](images/p3.png)
-After being able to connect, I tried out some commands such as ```ls```, which lists all the computer files. Another command I tried was ls-a, which will show all files, even hidden ones. 
+[link to error-inducing file](https://github.com/ad656/markdown-parse/blob/ac4a6f042e6f4711281599e566b50186158220bb/test-file.md)
 
-**Part 4**
-![Image](images/p4.png)
-After creating a new file(WhereamI.java), I was able to create a copy of it on the server. After copying it onto the server using the ``scp`` command, we can run the ```ls``` command and confirm that the file is indeed present on there. 
+![Image](if1error.png)
 
-**Part 5**
-![Image](images/p5.png)
+This error covered any of the rest errors with missing paranthesis or brackets. In the absence of any of the four initially required symbols, 
+the loop will go on forever but with the four if statements in place we are able to check for the lack of the symbols. 
 
-By running the ```ssh-keygen``` command in the terminal, we are able to generate a key to log in without the use of a password. After generating the key, we can safely exit the remote connection and log back in with the key. When logging in with the normal```ssh``` login, I used 49 keystrokes but with the key I only had to use 22 keystrokes to login. 
+**Code Change #3**
 
-**Part6**
-![Image](images/p6.png)
-There are additional ways to run some of the basic commands in terminal in easier ways, such as adding ```ls``` directly to the ssh command to have the list of files appear right after logging onto the server. Other tricks include running multiple commands on one line, seperated with semicolons. 
+![Image](if3.png)
+
+[link to error-inducing file](https://github.com/ad656/markdown-parse/blob/b5f644e27fc0f11f06b8dc8727d477964f3d6fd7/test-file.md)
+
+![Image](if3error.png)
+
+When extra characters are added at the end of the close paranthesis of the last link, the loop runs infinitely and eventually there is 
+an OutofMemory error. In order to fix this, we place an if statement that checks if there are any more open brackets after the last 
+link. 
